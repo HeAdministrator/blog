@@ -12,24 +12,67 @@
 */
 
 Route::get('/', function () {
-
-});
-
-Route::get("send_mail",function(){
-    mail('1351242029@qq.com',"测试邮件","这是一封测试邮件");
-    return 'send mail';
+    return view('login/index',['is_show'=>'N']);
 });
 
 
-Route::post('user/', function ($user_name,$password) {
-    if($password=="123456"){
-        return "欢迎您登录: " . $user_name."!!!";
-    }else{
-        return "密码输入不正确！";
-    }
 
-})->name('user.login');
 
-Route::get('user/{id?}', function ($id = 1) {
-    return "用户ID: " . $id;
-})->name('user.profile');
+
+
+//路由分组
+Route::group(['prefix'=>'article'],function(){
+    //列表页
+    Route::get('/','\App\Http\Controllers\IndexController@index');
+    //详情页
+    Route::get('/getInfo/{post}','\App\Http\Controllers\IndexController@getInfo');
+    //新建
+    Route::get('/create','\APP\Http\Controllers\IndexController@create');
+    //编辑文章
+    Route::get('/{post}/edit','\APP\Http\Controllers\IndexController@edit');
+    //更新
+    Route::put("/{post}",'\APP\Http\Controllers\IndexController@update');
+    //保存
+    Route::post("/",'\APP\Http\Controllers\IndexController@save');
+    //删除
+    Route::get('/delete','\APP\Http\Controllers\IndexController@delete');
+
+});
+
+
+
+/*Route::get('/hello','\App\Http\Controllers\AllenController@index');
+Route::get('/post','\App\Http\Controllers\postController@index');
+
+Route::match(['get','post'],'multy1',function(){
+  return 'multy1';
+});
+
+Route::any('multy2',function(){
+    return 'multy2';
+});
+
+//路由别名
+Route::get('user/member-center',['as'=>'center',function(){
+    return 'member-center';
+}]);*/
+
+/*
+ * Route::put('/posts','\APP\Http\Controllers\IndexController@getArticleList');
+ <from action="/posts" method="POST">
+    <input type="hidden" name="_method" value="PUT"/>
+    {{ method_field("PUT") }}
+</from>
+ */
+
+/*
+Route::get('store_index/{name}',function($name){
+
+    return $name.'的商铺商铺';
+});
+
+
+Route::get('user/{name?}',function($name=null){
+
+    return $name;
+});*/

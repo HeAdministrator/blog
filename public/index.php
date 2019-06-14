@@ -1,38 +1,3 @@
-<style>
-     button{
-         width: 133px;
-         height: 33px;
-         font-weight: bold;
-         color: blanchedalmond;
-         font-size: 16px;
-         background-color: #999;
-         border: 1px solid #000;
-         border-radius: 10px;
-
-     }
-    h2{
-        width: 150px;
-        text-align: right;
-    }
-</style>
-<div style="width: 100%;">
-    <div style="width: 100%;text-align: center;">
-        <h1>登录</h1>
-    </div>
-        <from action="{{ route('user.login',['user_name'=>'allen','password'=>'123456']) }}" method="post">
-            <div style="text-align: center;">
-                <h2 style="display: inline-block;">用户名：</h2><input  type="text" name="user_name">
-            </div>
-            <div style="text-align: center;">
-                <h2 style="display: inline-block;">密码：</h2><input  type="password" name="password">
-            </div>
-            <div style="text-align: center;margin-top: 32px;margin-left: 125px;">
-                <button type="submit" name="submit">提交</button>
-            </div>
-        </from>
-    <a href="{{ route('user.profile', [100]) }}">点击</a>
-</div>
-
 <?php
 
 /**
