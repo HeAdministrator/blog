@@ -40,8 +40,8 @@ class IndexController extends Controller
         return $data;
     }
     //详情
-    public function getInfo(){
-        return view('article/info');
+    public function getInfo(Article $article){
+        return view('article/info',compact('article'));
     }
     //新建
     public function create(){

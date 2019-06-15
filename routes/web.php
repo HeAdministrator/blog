@@ -29,7 +29,7 @@ Route::group(['prefix'=>'article'],function(){
     Route::get('/','\App\Http\Controllers\IndexController@index');
     Route::get('/getList','\App\Http\Controllers\IndexController@getList');
     //详情页
-    Route::get('/getInfo/{post}','\App\Http\Controllers\IndexController@getInfo');
+    Route::get('/getInfo/{article?}','\App\Http\Controllers\IndexController@getInfo');
     //新建
     Route::get('/create','\APP\Http\Controllers\IndexController@create');
     //编辑文章

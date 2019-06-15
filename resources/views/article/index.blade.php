@@ -66,7 +66,7 @@
                     }
                     , {
                         field: '', width: '10%', title: '操作', templet: function (full) {
-                            var str = '<a class="layui-btn layui-btn-xs" href="/webadmin/article/edit?id=' + full.id + '"><i class="layui-icon"></i></a>';
+                            var str = '<a class="layui-btn layui-btn-xs" href="article/getInfo/'+full.id+'"><i class="layui-icon"></i></a>';
                             str += '<button id="' + full.id + '" class="layui-btn layui-btn-danger layui-btn-xs delete"><i class="layui-icon"></i></button>';
                             return str;
                         }
