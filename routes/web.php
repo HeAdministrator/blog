@@ -31,15 +31,15 @@ Route::group(['prefix'=>'article'],function(){
     //详情页
     Route::get('/getInfo/{article?}','\App\Http\Controllers\IndexController@getInfo');
     //新建
-    Route::get('/create','\APP\Http\Controllers\IndexController@create');
+    Route::get('/create','\App\Http\Controllers\IndexController@create');
     //编辑文章
-    Route::get('/{post}/edit','\APP\Http\Controllers\IndexController@edit');
+    Route::get('/edit','\App\Http\Controllers\IndexController@edit');
     //更新
-    Route::put("/{post}",'\APP\Http\Controllers\IndexController@update');
+    Route::put("/edit/{article}",'\App\Http\Controllers\IndexController@update');
     //保存
-    Route::post("/",'\APP\Http\Controllers\IndexController@save');
+    Route::post("/save",'\App\Http\Controllers\IndexController@save');
     //删除
-    Route::get('/delete','\APP\Http\Controllers\IndexController@delete');
+    Route::get('/delete/{article}','\App\Http\Controllers\IndexController@delete');
 
 });
 

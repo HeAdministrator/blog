@@ -10,7 +10,8 @@
             <div class="title m-b-md">
                 文章详情页
             </div>
-            <form action = "/article/save" method="POST" class="layui-form" id="orderForm"  style="width: 80%;background: azure;border: 1px solid #d2d2d2;padding: 3% 0%;display: inline-block;">
+            <form action = "/article/edit/{{$article->id}}" method="POST" class="layui-form" id="orderForm"  style="width: 80%;background: azure;border: 1px solid #d2d2d2;padding: 3% 0%;display: inline-block;">
+                {{method_field("PUT")}}
                 {{csrf_field()}}
                 <div class="layui-form-item layui-col-lg12 layui-col-md12">
                     <label class="layui-form-label">标题：</label>
