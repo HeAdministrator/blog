@@ -22,7 +22,7 @@ Route::group(['prefix'=>'register'],function(){
 
 
 Route::group(['prefix'=>'login'],function(){
-    Route::get('/', '\App\Http\Controllers\LoginController@index');
+    Route::get('/', '\App\Http\Controllers\LoginController@index')->name('login');;
     Route::get('/captcha', '\App\Http\Controllers\LoginController@captcha');
     Route::post('/dologin', '\App\Http\Controllers\LoginController@dologin');
     Route::get("/logout",'\App\Http\Controllers\LoginController@logout');
@@ -32,7 +32,7 @@ Route::group(['prefix'=>'login'],function(){
 
 
 //路由分组
-Route::group(['prefix'=>'article'],function(){
+Route::group(['prefix'=>'article','middleware' => 'auth:web'],function(){
     //列表页
     Route::get('/','\App\Http\Controllers\IndexController@index');
     Route::get('/getList','\App\Http\Controllers\IndexController@getList');
