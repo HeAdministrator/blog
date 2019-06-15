@@ -24,8 +24,7 @@
                             </div>
                             <div class="layui-col-xs5">
                                 <div style="margin-left: 10px;">
-                                    <img src="/webadmin/login/captcha" class="layadmin-user-login-codeimg" id="imgId"
-                                         onclick="javascript:this.src='/webadmin/login/captcha?' + new Date().getTime();">
+                                    <img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="{{url('/login/captcha')}}" />
                                 </div>
                             </div>
                         </div>

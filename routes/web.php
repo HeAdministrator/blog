@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('login/index',['is_show'=>'N']);
 });
 
-
+Route::group(['prefix'=>'login'],function(){
+    Route::get('/', '\App\Http\Controllers\IndexController@index');
+    Route::get('/captcha', '\App\Http\Controllers\IndexController@captcha');
+});
 
 
 
@@ -24,6 +27,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'article'],function(){
     //列表页
     Route::get('/','\App\Http\Controllers\IndexController@index');
+    Route::get('/getList','\App\Http\Controllers\IndexController@getList');
     //详情页
     Route::get('/getInfo/{post}','\App\Http\Controllers\IndexController@getInfo');
     //新建
