@@ -15,9 +15,17 @@ Route::get('/', function () {
     return view('login/index',['is_show'=>'N']);
 });
 
+Route::group(['prefix'=>'register'],function(){
+    Route::get('/', '\App\Http\Controllers\RegisterController@index');
+    Route::post('/doRegister','\App\Http\Controllers\RegisterController@doRegister');
+});
+
+
 Route::group(['prefix'=>'login'],function(){
-    Route::get('/', '\App\Http\Controllers\IndexController@index');
-    Route::get('/captcha', '\App\Http\Controllers\IndexController@captcha');
+    Route::get('/', '\App\Http\Controllers\LoginController@index');
+    Route::get('/captcha', '\App\Http\Controllers\LoginController@captcha');
+    Route::post('/dologin', '\App\Http\Controllers\LoginController@dologin');
+    Route::get("/logout",'\App\Http\Controllers\LoginController@logout');
 });
 
 

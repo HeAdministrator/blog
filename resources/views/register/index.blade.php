@@ -2,19 +2,23 @@
 @section("content")
     <div class="layadmin-user-login-main">
             <div class="layadmin-user-login-box layadmin-user-login-header">
-                <h2>登录</h2>
+                <h2>注册</h2>
                 <p>欢迎您</p>
             </div>
-            <form id="loginForm" class="layui-form" action="/login/dologin" method="POST">
+            <form id="loginForm" class="layui-form" action="/register/doRegister" method="POST">
                 {{csrf_field()}}
                 <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
                     <div class="layui-form-item">
                         <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
-                        <input type="text" name="name"  lay-verify="required" placeholder="用户名" class="layui-input" value="" >
+                        <input type="text" name="name"  placeholder="用户名" class="layui-input" value="" >
                     </div>
                     <div class="layui-form-item">
                         <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
-                        <input type="password" name="password"  lay-verify="required" placeholder="密码" class="layui-input" value="" >
+                        <input type="password" name="password"   placeholder="密码" class="layui-input" value="" >
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                        <input type="password" name="password_confirmation" id="LAY-user-login-password" lay-verify="required" placeholder="确认密码" class="layui-input" value="" >
                     </div>
                     {{--<div class="layui-form-item">
                         <div class="layui-row">
@@ -31,7 +35,7 @@
                     </div>--}}
                     <div class="layui-form-item" style="margin-bottom: 20px;">
                         <input type="checkbox" checked name="is_remember" lay-skin="primary" title="记住密码">
-                        <a href="/register" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">注册</a>
+                        <a href="/login" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">登陆</a>
                     </div>
 
                     @if(count($errors)>0)
@@ -49,7 +53,7 @@
                     @endif
 
                     <div class="layui-form-item">
-                        <button class="layui-btn layui-btn-fluid" type="submit" >登 入</button>
+                        <button class="layui-btn layui-btn-fluid" type="submit" >注册</button>
                     </div>
                 </div>
             </form>
